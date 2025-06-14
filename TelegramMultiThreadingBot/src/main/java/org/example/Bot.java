@@ -123,7 +123,8 @@ public class Bot extends TelegramLongPollingBot {
                 case "password awaiting":
                     if (!receivedText.equals("/cancel")) {
                         if (receivedText.charAt(0) == '/') {
-                            message = "Невозможная команда";
+                            message = "Невозможная команда\n"+"Введите логин:";
+                            botState = "login name awaiting";
                             sendTextMessage(chatId, message);
                             break;
                         }
@@ -143,7 +144,7 @@ public class Bot extends TelegramLongPollingBot {
                             sendTextMessage(chatId, message);
                             break;
                         }
-                        message = "Неверные данные, повторите попытку";
+                        message = "Неверные данные, повторите попытку\n"+"Введите логин:";
                         botState = "login name awaiting";
                         sendTextMessage(chatId, message);
 
